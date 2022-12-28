@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 # encoding=utf-8
-from __future__ import print_function
 from mycobot_communication.srv import GetCoords, SetCoords, GetAngles, SetAngles, GripperStatus
 import rospy
 import sys
-import select
 import termios
 import tty
 import time
 
-import roslib
 
 # Terminal output prompt information. 终端输出提示信息
 msg = """\
@@ -148,10 +145,10 @@ def teleop_keyboard():
                     switch_gripper(False)
                 elif key == "1":
                     rsp = set_angles(*init_pose)
-                    record_coords = [res.x, res.y, res.z, res.rx, res.ry, res.rz, speed, model]
+                    # record_coords = [res.x, res.y, res.z, res.rx, res.ry, res.rz, speed, model]
                 elif key in "2":
                     rsp = set_angles(*home_pose)
-                    record_coords = [res.x, res.y, res.z, res.rx, res.ry, res.rz, speed, model]
+                    # record_coords = [res.x, res.y, res.z, res.rx, res.ry, res.rz, speed, model]
                 elif key in "3":
                     rep = get_angles()
                     home_pose[0] = rep.joint_1
