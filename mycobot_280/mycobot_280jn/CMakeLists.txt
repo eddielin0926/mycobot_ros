@@ -30,6 +30,7 @@ catkin_install_python(PROGRAMS
   scripts/following_marker.py
   scripts/follow_and_pump.py
   scripts/simple_gui.py
+  scripts/mover.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

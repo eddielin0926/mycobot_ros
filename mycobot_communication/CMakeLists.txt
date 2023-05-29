@@ -11,6 +11,8 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
     rospy
     std_msgs
+    geometry_msgs
+    moveit_msgs
     genmsg 
     message_generation
 )
@@ -66,10 +68,12 @@ add_service_files(FILES
   SetCoords.srv
   GripperStatus.srv
   PumpStatus.srv
+  MoverService.srv
+  MoveToPoseService.srv
 )
 
 ## Generate added messages and services
-generate_messages(DEPENDENCIES std_msgs)
+generate_messages(DEPENDENCIES std_msgs geometry_msgs moveit_msgs)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -115,7 +119,7 @@ generate_messages(DEPENDENCIES std_msgs)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 ## Declare a catkin package
 catkin_package(
-  CATKIN_DEPENDS message_runtime std_msgs
+  CATKIN_DEPENDS message_runtime std_msgs geometry_msgs moveit_msgs
 )
 
 ###########

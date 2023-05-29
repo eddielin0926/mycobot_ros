@@ -1,0 +1,5 @@
+<launch>
+    <rosparam file="$(find mycobot_280jn)/config/params.yaml" command="load"/>
+    <node name="server_endpoint" pkg="ros_tcp_endpoint" type="default_server_endpoint.py" args="--wait" output="screen" respawn="true" />
+    <node name="trajectory_subscriber" pkg="mycobot_280jn" type="trajectory_subscriber.py" args="--wait" output="screen"/>
+</launch>
